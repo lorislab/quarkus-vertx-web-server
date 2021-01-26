@@ -18,12 +18,12 @@ jobs:
       - name: setup-graalvm-ce
         uses: rinx/setup-graalvm-ce@v0.0.5
         with:
-          graalvm-version: "20.2.0"
+          graalvm-version: "20.3.0"
           java-version: "java11"
           native-image: "true"
       - name: Build & Unit tests
         run: mvn --batch-mode clean package
-      - name: Native build
-        run: mvn --batch-mode package -DskipTests -Dnative
-      - name: Integration tests
-        run: mvn --batch-mode package -Dskip.surefire.tests=true failsafe:integration-test failsafe:verify
+#      - name: Native build
+#        run: mvn --batch-mode package -DskipTests -Dnative
+#      - name: Integration tests
+#        run: mvn --batch-mode package -Dskip.surefire.tests=true failsafe:integration-test failsafe:verify
